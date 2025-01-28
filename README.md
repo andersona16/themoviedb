@@ -39,13 +39,19 @@ Antes de começar, certifique-se de ter instalado:
 Siga os passos abaixo para configurar o projeto localmente:
 
 1. Clone o repositório:
+  ´´´bash
    git clone https://github.com/andersona16/themoviedb.git
+  ´´´
 
 2. Navegue até a pasta do projeto:
+  ´´´bash
     cd themoviedb
+  ´´´
 
 3. Instale as dependências:
+  ´´´bash
     yarn install
+´´´
 
 ## Estrutura do Projeto  
 1. src/app: Contém a maior parte do código da aplicação, incluindo componentes, serviços e modelos.
