@@ -1,4 +1,4 @@
-# MovieDB Angular Project
+# Consumindo API do The movie DB
 
 Este é um projeto Angular que consome a API do [The Movie DB (TMDb)](https://www.themoviedb.org/) para exibir informações sobre filmes. O projeto inclui uma listagem de filmes com diversas categorias, busca de filmes, paginação e uma página de detalhes com informações completas sobre cada filme.
 
@@ -54,6 +54,13 @@ Siga os passos abaixo para configurar o projeto localmente:
    # ou
    yarn install
    ```
+4. Inicie o servidor de desenvolvimento
+   ```bash
+  ng serve
+  # ou
+  npm start
+   ```
+
 
 ## Estrutura do Projeto  
 1. src/app: Contém a maior parte do código da aplicação, incluindo componentes, serviços e modelos.
