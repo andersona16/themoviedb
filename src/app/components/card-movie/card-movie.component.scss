@@ -1,0 +1,12 @@
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  gap: 15px;
+
+
+  .card-title {
+    margin: 0;
+  }
+}

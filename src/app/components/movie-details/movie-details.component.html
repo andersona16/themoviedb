@@ -1,0 +1,153 @@
+<div class="movie-container">
+  <div class="hero-section">
+    <div class="backdrop"
+      [style.backgroundImage]="'url(https://image.tmdb.org/t/p/original' + movie?.backdrop_path + ')'"
+      aria-label="Imagem de fundo do filme">
+      <div class="overlay"></div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="poster">
+        <img [src]="'https://image.tmdb.org/t/p/w500' + movie?.poster_path" [alt]="movie?.title">
+      </div>
+
+      <div class="movie-info">
+        <div class="actions">
+          <div class="rating">
+            <mat-icon class="custom-gold-icon">star</mat-icon>
+            <span>{{ movie?.vote_average }}</span>
+          </div>
+          <button class="trailer-btn" (click)="selectVideo(videos[0]?.key)">
+            <i class="fas fa-play"></i>
+            Reproduzir trailer
+          </button>
+        </div>
+
+        <h1>{{ movie?.title }}</h1>
+        <p class="tagline" *ngIf="movie?.tagline">{{ movie?.tagline }}</p>
+        <div class="metadata">
+          <span>{{ movie?.release_date | date: 'dd/MM/yyyy' }}</span>
+          <span class="dot">•</span>
+          <span>{{ getGenreNames() }}</span>
+          <span class="dot">•</span>
+          <span>{{ getRuntime() }}</span>
+        </div>
+
+        <section class="synopsis">
+          <h2>Sinopse</h2>
+          <p>{{ movie?.overview || 'Sinopse não disponível.' }}</p>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" *ngIf="isModalOpen">
+    <div class="modal-content">
+      <span class="close-btn" (click)="closeModal()">&times;</span>
+      <div class="video-container">
+        <iframe class="modal-video" [src]="selectedVideoUrl" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+          title="Trailer do filme"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <section class="content-section">
+    <div class="grid-item-1">
+
+      <div class="cast" *ngIf="cast.length">
+        <h2>Elenco</h2>
+        <div class="cast-grid">
+          <div *ngFor="let actor of cast.slice(0, 5)" class="cast-item">
+            <img [src]="'https://image.tmdb.org/t/p/w200' + actor.profile_path" [alt]="actor.name">
+            <span class="actor-name">{{ actor.name }}</span>
+            <span class="character">{{ actor.character }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reviews" *ngIf="reviews.length">
+        <h2>Avaliações dos Usuários</h2>
+        <div class="reviews-grid">
+          <div *ngFor="let review of reviews">
+            <p><strong>{{ review.author }}</strong> diz:</p>
+            <p>{{ review.content }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid-item-2">
+      <div class="production" *ngIf="movie?.production_companies?.length">
+        <h2>Produção</h2>
+        <div class="companies-grid">
+          <div class="company-item" *ngFor="let company of movie?.production_companies">
+            <img *ngIf="company.logo_path" [src]="'https://image.tmdb.org/t/p/w200' + company.logo_path"
+              [alt]="company.name">
+            <span *ngIf="!company.logo_path">{{ company.name }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-item" *ngIf="movie?.status">
+        <h3>Status</h3>
+        <p>{{ movie?.status }}</p>
+      </div>
+
+      <div class="detail-item" *ngIf="movie?.budget">
+        <h3>Orçamento</h3>
+        <p>{{ movie?.budget | currency }}</p>
+      </div>
+
+      <div class="detail-item" *ngIf="movie?.revenue">
+        <h3>Receita</h3>
+        <p>{{ movie?.revenue | currency }}</p>
+      </div>
+
+      <div class="detail-item" *ngIf="movie?.original_language">
+        <h3>Idioma Original</h3>
+        <p>{{ movie?.original_language | uppercase }}</p>
+      </div>
+
+      <div class="keywords" *ngIf="keywords.length">
+        <h2>Palavras-chave</h2>
+        <div class="keywords-list">
+          <span class="keyword-item" *ngFor="let keyword of keywords">{{ keyword.name }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="images" *ngIf="displayedPosters?.length">
+        <h2>Posters</h2>
+        <div class="images-grid">
+          <div *ngFor="let poster of displayedPosters" class="image-item" (click)="selectImage(poster)">
+            <img [src]="'https://image.tmdb.org/t/p/w500' + poster.file_path" [alt]="'Poster de ' + movie?.title">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-item-3">
+      <div class="similar-movies" *ngIf="similarMovies.length">
+        <h2>Recomendações</h2>
+        <div class="similar-movies-grid">
+          <div *ngFor="let movie of similarMovies">
+            <app-card-movie [movie]="movie"></app-card-movie>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<ng-template #loading>
+  <div class="loading">
+    <p>Carregando detalhes do filme...</p>
+  </div>
+</ng-template>
+
+<ng-template #error>
+  <div class="error">
+    <p>Ocorreu um erro ao carregar os detalhes do filme. Tente novamente mais tarde.</p>
+  </div>
+</ng-template>

@@ -1,0 +1,8 @@
+<div class="nav nav-pills mb-4">
+  <a class="nav-link" [routerLink]="['/movies']" [queryParams]="{ category: 'popular' }" routerLinkActive="active">Populares</a>
+  <a class="nav-link" [routerLink]="['/movies']" [queryParams]="{ category: 'nowPlaying' }" routerLinkActive="active">Em Exibição</a>
+  <a class="nav-link" [routerLink]="['/movies']" [queryParams]="{ category: 'topRated' }" routerLinkActive="active">Top Avaliados</a>
+  <a class="nav-link" [routerLink]="['/movies']" [queryParams]="{ category: 'upcoming' }" routerLinkActive="active">Próximos Lançamentos</a>
+</div>
+
+<router-outlet></router-outlet>

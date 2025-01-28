@@ -1,0 +1,13 @@
+<div class="card h-100">
+  <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" [alt]="'Poster de ' + movie.title"
+    class="card-img-top" />
+  <div class="card-body text-center">
+    <h5 class="card-title">{{ movie.title }}</h5>
+    <p class="card-text">
+      {{ movie.release_date | date:"dd 'de' MMM 'de' yyyy" }}
+    </p>
+    <a [routerLink]="['/movie-details', movie.id]" class="btn btn-outline-primary">
+      Ver Detalhes
+    </a>
+  </div>
+</div>
