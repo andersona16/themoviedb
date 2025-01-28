@@ -54,6 +54,7 @@ Siga os passos abaixo para configurar o projeto localmente:
    # ou
    yarn install
    ```
+   
 4. Inicie o servidor de desenvolvimento
    ```bash
   ng serve
