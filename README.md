@@ -1,59 +1,56 @@
-# ListFilms
+# MovieDB Angular Project
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
+Este é um projeto Angular que consome a API do [The Movie DB (TMDb)](https://www.themoviedb.org/) para exibir informações sobre filmes. O projeto inclui uma listagem de filmes com diversas categorias, busca de filmes, paginação e uma página de detalhes com informações completas sobre cada filme.
 
-## Development server
+## Funcionalidades
 
-To start a local development server, run:
+- **Listagem de Filmes**:
+  - Filmes Populares
+  - Filmes em Exibição
+  - Filmes Mais Bem Avaliados
+  - Próximos Lançamentos
+- **Busca de Filmes**: Pesquise filmes por título.
+- **Paginação**: Navegue entre as páginas de resultados.
+- **Detalhes do Filme**:
+  - Informações do filme (título, sinopse, data de lançamento, etc.)
+  - Elenco principal
+  - Trailer do filme (reprodução embutida)
+  - Palavras-chave relacionadas
+  - Avaliações dos usuários
+  - Recomendações de filmes semelhantes
 
-```bash
-ng serve
-```
+## Tecnologias Utilizadas
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Angular**: Framework principal utilizado para o desenvolvimento do frontend.
+- **Bootstrap**: Biblioteca para estilização e layout responsivo.
+- **TheMovieDB API**: API externa utilizada para fornecer informações sobre filmes.
+- **RxJS**: Biblioteca para programação reativa.
+- **TypeScript**: Linguagem utilizada para o desenvolvimento no Angular.
 
-## Code scaffolding
+## Pré-requisitos
+Antes de começar, certifique-se de ter instalado:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- [Node.js](https://nodejs.org/) (versão 16 ou superior)
+- [Angular CLI](https://angular.io/cli) (para rodar o projeto Angular)
+- Uma chave de API do [The Movie DB](https://www.themoviedb.org/settings/api)
 
-```bash
-ng generate component component-name
-```
+## Instalação
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Siga os passos abaixo para configurar o projeto localmente:
 
-```bash
-ng generate --help
-```
+1. Clone o repositório:
+   git clone https://github.com/andersona16/themoviedb.git
 
-## Building
+2. Navegue até a pasta do projeto:
+    cd themoviedb
 
-To build the project run:
+3. Instale as dependências:
+    yarn install
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Estrutura do Projeto  
+1. src/app: Contém a maior parte do código da aplicação, incluindo componentes, serviços e modelos.
+2. components: Componentes para listagem e exibição de detalhes de filmes.
+3. services: Serviço que se comunica com a API TheMovieDB.
+4. models: Modelos de dados para filmes e detalhes.
+5. src/environments: Contém os arquivos de configuração de ambiente (desenvolvimento e produção).
+6. public: Contém arquivos estáticos como imagens e fontes.
