@@ -54,14 +54,13 @@ Siga os passos abaixo para configurar o projeto localmente:
    # ou
    yarn install
    ```
-   
+
 4. Inicie o servidor de desenvolvimento
    ```bash
-  ng serve
-  # ou
-  npm start
+    ng serve
+    ou
+    npm start
    ```
-
 
 ## Estrutura do Projeto  
 1. src/app: Contém a maior parte do código da aplicação, incluindo componentes, serviços e modelos.
